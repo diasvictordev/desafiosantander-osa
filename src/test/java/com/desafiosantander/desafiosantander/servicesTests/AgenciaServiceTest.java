@@ -61,9 +61,9 @@ public class AgenciaServiceTest {
     public void deveCalcularDistanciasCorretamente() {
         Agencia a1 = new Agencia(0.0, 0.0);
         a1.setId(1L);
-        Agencia a2 = new Agencia(3.0, 4.0); // Distância = 5.0
+        Agencia a2 = new Agencia(3.0, 4.0);
         a2.setId(2L);
-        Agencia a3 = new Agencia(6.0, 8.0); // Distância = 10.0
+        Agencia a3 = new Agencia(6.0, 8.0);
         a3.setId(3L);
 
         when(repository.findAll()).thenReturn(List.of(a3, a1, a2));
@@ -74,8 +74,8 @@ public class AgenciaServiceTest {
 
         List<String> chaves = resultado.keySet().stream().toList();
 
-        assertEquals("AGENCIA_1", chaves.get(0)); // mais perto (0,0)
-        assertEquals("AGENCIA_2", chaves.get(1)); // 5.0
-        assertEquals("AGENCIA_3", chaves.get(2)); // 10.0
+        assertEquals("AGENCIA_1", chaves.get(0));
+        assertEquals("AGENCIA_2", chaves.get(1));
+        assertEquals("AGENCIA_3", chaves.get(2));
     }
 }
